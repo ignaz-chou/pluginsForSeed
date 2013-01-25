@@ -26,12 +26,14 @@
 	circle:setAnchor(-0.5,-0.5)
 
 版本说明
+	v.1.02 alpha 2013-1-26
+		1.修正了无法正确获取args的错误
 	v.1.01 alpha 2013-1-26
 		1.完成newCircle基本功能
 		2.ax,ay转移至参数args
 		3.args中添加参数isBorder.决定是否绘制空心形状
 		4.添加assert,在参数错误时给出正确的提示
-		5.添加newAnchorNode方法.创建自带锚点的空Node
+		5.添加newAnchorNode方法.创建自带锚点的
 	v.1.00 alpha 2013-1-26
 		1.完成newRect基本功能
 ]]--
@@ -55,7 +57,7 @@ local function newAnchorNode(self,ax,ay) --创建默认带锚点的node
 end
 
 local function newRect(self,w,h,args) --绘制矩形
-	local args = arsg or {}
+	local args = args or {}
 	local isBorder = args.isBorder
 	assert(w and h,"newRect绘制矩形需要给定宽高属性")
 	assert(type(w) == "number" and type(h) == "number","width，height宽高属性需要给定数字")
@@ -78,7 +80,7 @@ local function newRect(self,w,h,args) --绘制矩形
 end
 
 local function newCircle(self,r,args) --绘制圆形
-	local args = arsg or {}
+	local args = args or {}
 	local isBorder = args.isBorder
 	assert(r,"newCircle绘制圆形需要给定半径属性")
 	assert(type(r) == "number","radius半径属性需要给定数字")
